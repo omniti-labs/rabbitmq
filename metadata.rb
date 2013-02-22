@@ -13,7 +13,7 @@ depends           "apt", ">= 1.4.4"
 depends           "yum", ">= 0.5.0"
 depends           "erlang", ">= 0.9"
 
-%w{ubuntu debian redhat centos scientific amazon fedora oracle smartos}.each do |os|
+%w{ubuntu debian redhat centos scientific amazon fedora oracle smartos omnios}.each do |os|
   supports os
 end
 
