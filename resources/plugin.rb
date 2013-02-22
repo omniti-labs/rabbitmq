@@ -18,6 +18,9 @@
 #
 
 actions :enable, :disable
-default_action :enable
+def initialize(*args)
+  super
+  @action = :enable
+end
 
 attribute :plugin, :kind_of => String, :name_attribute => true
