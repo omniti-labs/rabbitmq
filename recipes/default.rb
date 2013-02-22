@@ -73,7 +73,7 @@ when "rhel", "fedora"
     end
 
   end
-when "smartos"
+when "smartos", "omnios"
 
   package "rabbitmq"
 
@@ -139,5 +139,5 @@ service node['rabbitmq']['service_name'] do
   status_command "setsid /etc/init.d/rabbitmq-server status"
   supports :status => true, :restart => true
   action [ :enable, :start ]
-  not_if { platform?('smartos') }
+  not_if { platform?('smartos', 'omnios') }
 end
