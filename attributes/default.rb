@@ -60,9 +60,17 @@ default['rabbitmq']['enabled_plugins'] = []
 default['rabbitmq']['disabled_plugins'] = []
 
 # SmartOS-specific defaults
-if node[:platform] == 'smartos'
+if node[:platform] == 'smartos' 
   default['rabbitmq']['service_name'] = 'rabbitmq'
   default['rabbitmq']['config_root'] = '/opt/local/etc/rabbitmq'
   default['rabbitmq']['config'] = '/opt/local/etc/rabbitmq/rabbitmq'
   default['rabbitmq']['erlang_cookie_path'] = '/var/db/rabbitmq/.erlang.cookie'
+end
+
+# OmniOS-specific defaults
+if node[:platform] == 'omnios' 
+  default['rabbitmq']['service_name'] = 'rabbitmq'
+  default['rabbitmq']['config_root'] = '/opt/rabbitmq/etc/rabbitmq'
+  default['rabbitmq']['config'] = '/opt/rabbitmq/etc/rabbitmq/rabbitmq'
+  default['rabbitmq']['erlang_cookie_path'] = '/opt/rabbitmq/var/rabbitmq/.erlang.cookie'
 end
