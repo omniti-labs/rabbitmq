@@ -78,11 +78,11 @@ when "smartos", "omnios"
   package "rabbitmq"
 
   service 'epmd' do
-    action :start
+    action [:enable, :start]
   end
 
   service node['rabbitmq']['service_name'] do
-    action :start
+    action [:enable, :start]
   end
 
 end
